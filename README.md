@@ -123,9 +123,6 @@ def setaccio_ondulatorio_primi(limite):
 
 print("Primi individuati con filtro ondulatorio:", setaccio_ondulatorio_primi(80))
 ```
-### Evoluzione: L'Algoritmo Universale dei "Numeri Ennesimi"
-Estendendo la classificazione combinatoria, è stato sviluppato un modello in grado di isolare le classi dei numeri non più in modo isolato, ma attraverso un parametro d'ordine dinamico. Definendo l'ordine $k$ (dove $k=1$ identifica i Primi, $k=2$ i Secondi, $k=3$ i Terzi), l'algoritmo interroga la densità della funzione $\tau(n)$ accoppiata al calcolo additivo di $\sigma(n)$, estraendo selettivamente le sequenze regolate da precise configurazioni di esponenti primari.
-
 
 > [!IMPORTANT]
 > ### Il Criterio di Primalità Ondulatoria
@@ -173,6 +170,8 @@ def classificazione_divisori_tau(fine):
 
 print("Lista divisori extra (Tau - 1) da 2 a 20:", classificazione_divisori_tau(20))
 ```
+### Evoluzione: L'Algoritmo Universale dei "Numeri Ennesimi"
+Estendendo la classificazione combinatoria, è stato sviluppato un modello in grado di isolare le classi dei numeri non più in modo isolato, ma attraverso un parametro d'ordine dinamico. Definendo l'ordine $k$ (dove $k=1$ identifica i Primi, $k=2$ i Secondi, $k=3$ i Terzi), l'algoritmo interroga la densità della funzione $\tau(n)$ accoppiata al calcolo additivo di $\sigma(n)$, estraendo selettivamente le sequenze regolate da precise configurazioni di esponenti primari.
 
 ---
 
