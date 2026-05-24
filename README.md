@@ -27,12 +27,11 @@ pythondef listapartizioni_p_pura(coll):
         ff = ff + [n1]
         gg = gg + [g1]
     return gg
-
 print("Primi 15 valori di p(n):", listapartizioni_p_pura(15))
 
 Rilevanza TeoricaL'algoritmo dimostra sperimentalmente come la derivata discreta applicata a una serie combinatoria possa isolare i coefficienti di espansione di Eulero, producendo la sequenza classica: 1, 1, 2, 3, 5, 7, 11, 15, 22...3. Fase 2: La Scoperta della Stabilizzazione dei CoefficientiStudiando il comportamento delle partizioni sotto restrizioni (mappando il numero di addendi dal più grande al più piccolo), l'indagine si è spostata su una matrice bidimensionale (catalogata storicamente come OEIS A259324).
 
-    pythondef analizza_stabilizzazione(col):
+pythondef analizza_stabilizzazione(col):
     for hh in range(col+1):
         ln1, colf, cont, n1 = [], [1], 0, 1
         a = range(0, hh+1)
@@ -47,13 +46,12 @@ Rilevanza TeoricaL'algoritmo dimostra sperimentalmente come la derivata discreta
             colf = colf + [ln2[-1]]
             ln1 = ln2
         print(f"hh = {hh:2d} -> {colf}")
-
 analizza_stabilizzazione(6)
 
 Fenomeno Osservato: Il Fronte StabileAnalizzando l'output da destra a sinistra, si nota un fenomeno eccezionale di cristallizzazione numerica. Man mano che hh cresce, i primi termini della riga smettono di variare e rimangono costanti:hh=4: \([..., \mathbf{1, 1, 2, 3}, 5]\)hh=5: \([..., \mathbf{1, 1, 2, 3, 5}, 7]\)hh=6: \([..., \mathbf{1, 1, 2, 3, 5, 7}, 11]\)
 Conclusione Sperimentale: I coefficienti limite che si stabilizzano convergono esattamente alla successione \(p(n)\) originaria. La struttura bidimensionale collassa proiettando la serie fondamentale delle partizioni.4. Fase 3: Inversione di Fase e Isolamento dei Numeri PrimiIntroducendo un'interferenza distruttiva nell'algoritmo precedente (tramite l'inversione di segno -ln2[y - cont]), la matrice smette di accumulare dati e si trasforma in un filtro d'onda. La quasi totalità dei termini decade a zero, lasciando attivi solo i nodi corrispondenti ai Numeri Pentagonali Generalizzati (\(1, 2, 5, 7, 12, 15...\)).Sfruttando questa proprietà ondulatoria, è stato implementato un algoritmo in grado di calcolare la funzione \(\sigma(n)\) (somma dei divisori) per via puramente additiva, isolando i numeri primi senza ricorrere a operazioni classiche di divisione testata.
 
-    pythondef setaccio_ondulatorio_primi(limite):
+pythondef setaccio_ondulatorio_primi(limite):
     sigma = [0] * (limite + 1)
     primi = []
     for n in range(1, limite + 1):
@@ -72,14 +70,13 @@ Conclusione Sperimentale: I coefficienti limite che si stabilizzano convergono e
         if sigma[n] == n + 1: # Criterio di primalità aritmetica
             primi.append(n)
     return primi
-
 print("Primi individuati con filtro ondulatorio:", setaccio_ondulatorio_primi(80))
 
 5. Fase 4: La Classificazione dei Divisori (I Numeri "Secondi" e "Terzi")
 
 L'ultimo tassello espande la struttura moltiplicativa degli interi classificando i numeri in base al numero esatto di divisori (funzione \(\tau(n)\) o OEIS A000005), formalizzando una gerarchia logica:Numeri Primi: 2 divisori (\(1\) e se stesso).Numeri Secondi: 3 divisori (Quadrati perfetti di numeri primi, es: 4, 9, 25).Numeri Terzi: 4 divisori (Cubi di primi o prodotti di due primi distinti, es: 6, 8, 10).L'algoritmo sviluppato esegue un setaccio autonomo ottimizzato fino alla radice quadrata del target (x**0.5), per poi applicare la scomposizione in fattori primari combinatoria.
 
-    pythondef classificazione_divisori_tau(fine):
+pythondef classificazione_divisori_tau(fine):
     primi = [2]
     lista = range(2, fine + 1)
     e = 1
@@ -106,7 +103,6 @@ L'ultimo tassello espande la struttura moltiplicativa degli interi classificando
             if x % y != 0 and y == j:
                 f = f + [h-1]
     return f
-
 print("Lista divisori extra (Tau - 1) da 2 a 20:", classificazione_divisori_tau(20))
 
 6. Conclusioni e Sviluppi Futuri
