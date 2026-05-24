@@ -1,7 +1,7 @@
 1. Introduzione e Sintesi del Progetto
 Questo progetto nasce da un approccio puramente sperimentale volto a esplorare le connessioni profonde tra le strutture additive degli interi (le partizioni) e le loro proprietà moltiplicative (i divisori e i numeri primi).Attraverso lo sviluppo autonomo di algoritmi in Python, la ricerca ha mappato in modo indipendente tre pietre miliari della teoria dei numeri:La funzione di partizione classica \(p(n)\).La stabilizzazione dei coefficienti combinatori nelle partizioni a due variabili.La funzione \(\tau(n)\) (numero di divisori) e l'isolamento dei numeri primi tramite filtri ondulatori distruttivi.2. Fase 1: Lo studio della Funzione di Partizione \(p(n)\)Il primo obiettivo è stato mappare la funzione generatrice delle partizioni, intese come i modi in cui un intero può essere scomposto nella somma di interi positivi.Il Codice di Partenza (Approccio Iterativo Polinomiale)L'algoritmo sviluppato analizza i flussi e applica una derivazione discreta (n1 - ff[-1]) per estrarre con precisione i valori puri della serie \(p(n)\), superando la naturale tendenza del sistema ad accumulare i dati in somme cumulative.
 
-    pythondef listapartizioni_p_pura(coll):
+pythondef listapartizioni_p_pura(coll):
     ff = [0]
     gg = []
     s = range(0, coll + 1)
