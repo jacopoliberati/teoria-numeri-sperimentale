@@ -82,7 +82,8 @@ def analizza_stabilizzazione(col):
 analizza_stabilizzazione(6)
 ```
 
-> [!NOTE] ### Fenomeno Osservato: Il Fronte Stabile
+> [!NOTE]
+> ### Fenomeno Osservato: Il Fronte Stabile
 > Analizzando l'output generato dall'algoritmo da destra a sinistra (corrispondente all'analisi degli addendi dal più piccolo al più grande), si nota un eccezionale fenomeno di **cristallizzazione numerica**. Man mano che l'indice `hh` cresce, i primi termini della riga smettono di variare e rimangono congelati:
 > * `hh = 4:` $[..., \mathbf{1, 1, 2, 3}, 5]$
 > * `hh = 5:` $[..., \mathbf{1, 1, 2, 3, 5}, 7]$
